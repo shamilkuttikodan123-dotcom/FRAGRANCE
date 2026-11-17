@@ -1,0 +1,335 @@
+
+/* =========================
+   OTP PAGE
+========================= */
+
+.otp-container {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    margin: 120px auto 40px;
+    padding: 40px 32px;
+
+    background: #1c1b1c;
+    color: #e5e2e3;
+
+    border: 1px solid #353333;
+    border-radius: 12px;
+
+    box-sizing: border-box;
+    text-align: center;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.otp-close-button {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+
+    width: auto !important;
+    height: auto !important;
+    padding: 5px !important;
+    margin: 0 !important;
+
+    background: none !important;
+    border: none !important;
+
+    color: #aaa5a0 !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.otp-close-button:hover {
+    color: #D4AF37 !important;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.otp-container h2 {
+    margin: 0 0 18px;
+
+    color: #D4AF37;
+
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.otp-container > p {
+    margin: 12px 0;
+
+    color: #c5c0bb;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* =========================
+   EMAIL
+========================= */
+
+.otp-container .otp-email {
+    margin: 16px 0 28px;
+
+    color: #f2ca50;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   OTP INPUT BOXES
+========================= */
+
+.otp-input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+
+    margin: 30px 0;
+}
+
+.otp-input-group input {
+    width: 50px;
+    height: 56px;
+
+    padding: 0;
+
+    background: #202020;
+    color: #f2ca50;
+
+    border: 1px solid #55504a;
+    border-radius: 7px;
+
+    outline: none;
+    box-sizing: border-box;
+
+    text-align: center;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+
+    caret-color: #D4AF37;
+
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+}
+
+.otp-input-group input:hover {
+    border-color: #8e762d;
+}
+
+.otp-input-group input:focus {
+    background: #252321;
+    border-color: #D4AF37;
+
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.16);
+}
+
+/* =========================
+   VERIFY OTP BUTTON
+========================= */
+
+.otp-container > button:not(.resend-button):not(.otp-close-button) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 48px;
+
+    margin-top: 10px;
+    padding: 0 15px;
+
+    background: linear-gradient(135deg, #D4AF37, #f2ca50);
+    color: #131314;
+
+    border: none;
+    border-radius: 6px;
+
+    box-sizing: border-box;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.otp-container > button:not(.resend-button):not(.otp-close-button):hover:not(:disabled) {
+    background: #f2ca50;
+    box-shadow: 0 5px 18px rgba(212, 175, 55, 0.22);
+    transform: translateY(-2px);
+}
+
+.otp-container > button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =========================
+   ERROR MESSAGE
+========================= */
+
+.otp-container .error-message {
+    margin: 14px 0;
+
+    color: #ff7777;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* =========================
+   RESEND SECTION
+========================= */
+
+.otp-container .resend-text {
+    margin: 28px 0 10px;
+
+    color: #c5c0bb;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.otp-container > button.resend-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 48px;
+
+    margin: 10px 0 0;
+    padding: 0 15px;
+
+    background: transparent;
+    color: #D4AF37;
+
+    border: 1px solid #D4AF37;
+    border-radius: 6px;
+
+    box-sizing: border-box;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.otp-container > button.resend-button:hover:not(:disabled) {
+    background: #D4AF37;
+    color: #131314;
+}
+/* =========================
+   SUCCESS MESSAGE
+========================= */
+
+.otp-container .success-message {
+    margin-top: 14px;
+
+    color: #83d69a;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .otp-container {
+        max-width: 410px;
+        margin-top: 100px;
+        padding: 38px 28px;
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 480px) {
+    .otp-container {
+        width: calc(100% - 30px);
+        max-width: 380px;
+
+        margin: 40px auto 25px;
+        padding: 35px 20px;
+    }
+
+    .otp-container h2 {
+        font-size: 25px;
+    }
+
+    .otp-container > p {
+        font-size: 13px;
+    }
+
+    .otp-input-group {
+        gap: 8px;
+        margin: 26px 0;
+    }
+
+    .otp-input-group input {
+        width: 44px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 350px) {
+    .otp-container {
+        padding: 32px 14px;
+    }
+
+    .otp-input-group {
+        gap: 6px;
+    }
+
+    .otp-input-group input {
+        width: 39px;
+        height: 46px;
+        font-size: 18px;
+    }
+}

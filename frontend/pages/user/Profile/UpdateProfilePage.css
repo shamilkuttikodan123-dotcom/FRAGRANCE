@@ -1,0 +1,785 @@
+
+/* =========================================
+   FRAGRANCE - UPDATE PROFILE POPUP
+   Luxury Dark Theme
+========================================= */
+
+:root {
+    --update-bg: #131314;
+    --update-card: #1c1b1c;
+    --update-input: #242223;
+    --update-border: #353234;
+
+    --update-gold: #D4AF37;
+    --update-gold-light: #f2ca50;
+    --update-gold-dark: #a98720;
+
+    --update-text: #e5e2e3;
+    --update-muted: #a6a1a2;
+    --update-danger: #e57373;
+
+    --update-radius: 12px;
+    --update-transition: all 0.3s ease;
+}
+
+
+/* =========================================
+   PREVENT BACKGROUND PAGE SCROLL
+========================================= */
+
+body:has(.profile-popup-overlay) {
+    overflow: hidden;
+}
+
+
+/* =========================================
+   POPUP OVERLAY
+========================================= */
+
+.profile-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.82);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    animation: profileOverlayFade 0.25s ease;
+}
+
+
+/* =========================================
+   POPUP CONTENT
+   Only this area will scroll
+========================================= */
+
+.profile-popup-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+
+    height: auto;
+    max-height: calc(100dvh - 40px);
+
+    min-height: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--update-gold-dark) #242223;
+
+    background: var(--update-bg);
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(212, 175, 55, 0.06);
+
+    animation: profilePopupAppear 0.3s ease;
+}
+
+
+/* Chrome / Edge Scrollbar */
+
+.profile-popup-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.profile-popup-content::-webkit-scrollbar-track {
+    background: #242223;
+    border-radius: 10px;
+}
+
+.profile-popup-content::-webkit-scrollbar-thumb {
+    background: var(--update-gold-dark);
+    border-radius: 10px;
+}
+
+.profile-popup-content::-webkit-scrollbar-thumb:hover {
+    background: var(--update-gold);
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.profile-popup-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #242223;
+
+    border: 1px solid var(--update-border);
+    border-radius: 50%;
+
+    color: var(--update-muted);
+
+    cursor: pointer;
+    transition: var(--update-transition);
+}
+
+.profile-popup-close:hover {
+    background: rgba(212, 175, 55, 0.13);
+
+    border-color: var(--update-gold);
+
+    color: var(--update-gold-light);
+
+    transform: rotate(90deg);
+}
+
+.profile-popup-close svg {
+    width: 19px;
+    height: 19px;
+}
+
+
+/* =========================================
+   MAIN PROFILE PAGE
+========================================= */
+
+.profile-page {
+    width: 100%;
+    min-height: 0;
+
+    padding: 34px 35px 32px;
+
+    background: var(--update-bg);
+    color: var(--update-text);
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    box-sizing: border-box;
+}
+
+.profile-page * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   PROFILE HEADER
+========================================= */
+
+.profile-header {
+    margin-bottom: 23px;
+    padding-right: 35px;
+}
+
+.profile-header h1 {
+    margin: 0 0 8px;
+
+    color: var(--update-gold-light);
+
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+}
+
+.profile-header p {
+    margin: 0;
+
+    color: var(--update-muted);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   PROFILE CARD
+========================================= */
+
+.profile-card {
+    width: 100%;
+
+    padding: 23px;
+
+    background: var(--update-card);
+
+    border: 1px solid var(--update-border);
+    border-radius: var(--update-radius);
+}
+
+
+/* =========================================
+   PROFILE EDIT FORM
+========================================= */
+
+.profile-edit-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+
+/* =========================================
+   PROFILE PICTURE SECTION
+========================================= */
+
+/* =========================================
+   PROFILE PICTURE - CENTER ALIGNMENT
+========================================= */
+
+.profile-picture-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+
+    padding-bottom: 20px;
+    margin-bottom: 8px;
+
+    border-bottom: 1px solid var(--update-border);
+    text-align: center;
+}
+
+.profile-picture-section > label {
+    color: var(--update-text);
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.profile-image-preview {
+    margin: 0 auto;
+}
+
+.profile-picture-section input[type="file"] {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+/* =========================================
+   IMAGE PREVIEW
+========================================= */
+
+.profile-image-preview {
+    width: 95px;
+    height: 95px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #292727;
+
+    border: 2px solid var(--update-gold);
+    border-radius: 50%;
+
+    color: var(--update-muted);
+}
+
+.profile-image-preview img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+
+    color: var(--update-muted);
+
+    font-size: 11px;
+    text-align: center;
+}
+
+
+/* =========================================
+   IMAGE FILE INPUT
+========================================= */
+
+.profile-picture-section input[type="file"] {
+    display: block;
+
+    width: 100%;
+    max-width: 320px;
+
+    padding: 8px;
+
+    background: #242223;
+
+    border: 1px solid var(--update-border);
+    border-radius: 6px;
+
+    color: var(--update-muted);
+
+    font-family: inherit;
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.profile-picture-section input[type="file"]::file-selector-button {
+    padding: 7px 12px;
+    margin-right: 12px;
+
+    background: rgba(212, 175, 55, 0.12);
+
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 5px;
+
+    color: var(--update-gold-light);
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: var(--update-transition);
+}
+
+.profile-picture-section input[type="file"]::file-selector-button:hover {
+    background: var(--update-gold);
+    color: #171512;
+}
+
+
+/* =========================================
+   FORM LABELS
+========================================= */
+
+.profile-edit-form > label {
+    margin-top: 9px;
+
+    color: var(--update-text);
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   TEXT INPUTS
+========================================= */
+
+.profile-edit-form > input:not([type="file"]) {
+    display: block;
+
+    width: 100%;
+    height: 44px;
+    min-height: 44px;
+
+    padding: 0 13px;
+
+    background: var(--update-input);
+
+    border: 1px solid var(--update-border);
+    border-radius: 7px;
+
+    outline: none;
+
+    color: var(--update-text);
+
+    font-family: inherit;
+    font-size: 12px;
+
+    transition: var(--update-transition);
+}
+
+.profile-edit-form > input::placeholder {
+    color: #777273;
+    opacity: 1;
+}
+
+.profile-edit-form > input:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+}
+
+.profile-edit-form > input:focus {
+    border-color: var(--update-gold);
+
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.09);
+}
+
+
+/* =========================================
+   VALIDATION ERROR MESSAGE
+========================================= */
+
+.profile-edit-form .error-message {
+    margin: -2px 0 3px;
+
+    color: var(--update-danger);
+
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   SAVE CHANGES BUTTON
+========================================= */
+
+.profile-save-btn {
+    display: block;
+
+    width: 100%;
+    min-height: 45px;
+
+    margin-top: 17px;
+    padding: 0 18px;
+
+    background: linear-gradient(
+        110deg,
+        #c49b29,
+        #f2ca50
+    );
+
+    border: 1px solid var(--update-gold);
+    border-radius: 7px;
+
+    color: #171512;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+
+    cursor: pointer;
+    transition: var(--update-transition);
+}
+
+.profile-save-btn:hover:not(:disabled) {
+    background: linear-gradient(
+        110deg,
+        #d4af37,
+        #ffe078
+    );
+
+    box-shadow: 0 5px 18px rgba(212, 175, 55, 0.2);
+
+    transform: translateY(-1px);
+}
+
+.profile-save-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   SAVE BUTTON DISABLED STATE
+========================================= */
+
+.profile-save-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* =========================================
+   CANCEL BUTTON
+========================================= */
+
+.update-password-btn {
+    display: block;
+
+    width: 100%;
+    min-height: 43px;
+
+    padding: 0 18px;
+
+    background: transparent;
+
+    border: 1px solid var(--update-border);
+    border-radius: 7px;
+
+    color: var(--update-muted);
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: var(--update-transition);
+}
+
+.update-password-btn:hover {
+    background: #292727;
+
+    border-color: var(--update-gold);
+
+    color: var(--update-gold-light);
+}
+
+
+/* =========================================
+   BUTTON AND INPUT ACCESSIBILITY
+========================================= */
+
+.profile-popup-content button:focus-visible,
+.profile-popup-content input:focus-visible {
+    outline: 2px solid var(--update-gold-light);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   POPUP ANIMATIONS
+========================================= */
+
+@keyframes profileOverlayFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes profilePopupAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .profile-popup-overlay {
+        padding: 16px;
+    }
+
+    .profile-popup-content {
+        max-width: 470px;
+        max-height: calc(100dvh - 32px);
+    }
+
+    .profile-page {
+        padding: 30px 25px;
+    }
+
+    .profile-header h1 {
+        font-size: 26px;
+    }
+
+    .profile-card {
+        padding: 21px;
+    }
+
+    .profile-image-preview {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 480px) {
+
+    .profile-popup-overlay {
+        padding: 10px;
+    }
+
+    .profile-popup-content {
+        width: 100%;
+        max-width: 100%;
+
+        max-height: calc(100dvh - 20px);
+
+        border-radius: 11px;
+    }
+
+    .profile-popup-close {
+        top: 12px;
+        right: 12px;
+
+        width: 32px;
+        height: 32px;
+    }
+
+    .profile-page {
+        padding: 25px 17px 22px;
+    }
+
+    .profile-header {
+        margin-bottom: 19px;
+        padding-right: 35px;
+    }
+
+    .profile-header h1 {
+        font-size: 23px;
+    }
+
+    .profile-header p {
+        font-size: 11px;
+    }
+
+    .profile-card {
+        padding: 16px;
+    }
+
+    .profile-edit-form {
+        gap: 8px;
+    }
+
+    .profile-picture-section {
+        gap: 10px;
+        padding-bottom: 17px;
+    }
+
+    .profile-image-preview {
+        width: 82px;
+        height: 82px;
+    }
+
+    .profile-picture-section input[type="file"] {
+        max-width: 100%;
+        font-size: 10px;
+    }
+
+    .profile-picture-section input[type="file"]::file-selector-button {
+        padding: 6px 9px;
+        font-size: 10px;
+    }
+
+    .profile-edit-form > label {
+        font-size: 11px;
+    }
+
+    .profile-edit-form > input:not([type="file"]) {
+        height: 42px;
+        min-height: 42px;
+
+        padding: 0 11px;
+
+        font-size: 11px;
+    }
+
+    .profile-save-btn {
+        min-height: 42px;
+        margin-top: 13px;
+
+        font-size: 11px;
+    }
+
+    .update-password-btn {
+        min-height: 40px;
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media screen and (max-width: 350px) {
+
+    .profile-popup-overlay {
+        padding: 7px;
+    }
+
+    .profile-popup-content {
+        max-height: calc(100dvh - 14px);
+    }
+
+    .profile-page {
+        padding: 23px 12px 18px;
+    }
+
+    .profile-card {
+        padding: 13px;
+    }
+
+    .profile-header h1 {
+        font-size: 21px;
+    }
+
+    .profile-popup-close {
+        width: 29px;
+        height: 29px;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .profile-popup-overlay,
+    .profile-popup-content {
+        animation: none;
+    }
+
+    .profile-popup-content *,
+    .profile-popup-content *::before,
+    .profile-popup-content *::after {
+        transition-duration: 0.01ms !important;
+    }
+}

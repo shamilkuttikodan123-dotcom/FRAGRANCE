@@ -1,0 +1,259 @@
+/* OVERLAY */
+
+.signout-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(6px);
+}
+
+
+/* POPUP */
+
+.signout-popup {
+    position: relative;
+
+    width: 100%;
+    max-width: 430px;
+
+    padding: 38px 32px 30px;
+
+    background: #1c1b1c;
+
+    border: 1px solid #3b3730;
+    border-radius: 14px;
+
+    text-align: center;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+    animation: signoutPopup 0.25s ease;
+}
+
+
+/* ANIMATION */
+
+@keyframes signoutPopup {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* CLOSE BUTTON */
+
+.signout-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #2a2928;
+    color: #aaa5a0;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.signout-close:hover {
+    background: #39352e;
+    color: #D4AF37;
+}
+
+
+/* ICON */
+
+.signout-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #D4AF37;
+
+    background: rgba(212, 175, 55, 0.10);
+
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+}
+
+
+/* CONTENT */
+
+.signout-content h2 {
+    margin: 0 0 12px;
+
+    color: #e5e2e3;
+
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.signout-content p {
+    margin: 0 auto;
+
+    max-width: 320px;
+
+    color: #aaa5a0;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* INFO */
+
+.signout-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-top: 22px;
+    padding: 12px;
+
+    background: rgba(212, 175, 55, 0.06);
+
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 7px;
+
+    color: #c5c0bb;
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    text-align: left;
+}
+
+.signout-info svg {
+    flex-shrink: 0;
+    color: #D4AF37;
+    margin-top: 1px;
+}
+
+
+/* ACTION BUTTONS */
+
+.signout-actions {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+.signout-actions button {
+    flex: 1;
+
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 6px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+/* CANCEL */
+
+.signout-cancel-btn {
+    background: transparent;
+
+    border: 1px solid #55504a;
+
+    color: #e5e2e3;
+}
+
+.signout-cancel-btn:hover {
+    background: #2a2928;
+    border-color: #D4AF37;
+    color: #D4AF37;
+}
+
+
+/* CONFIRM */
+
+.signout-confirm-btn {
+    background: linear-gradient(
+        135deg,
+        #D4AF37,
+        #f2ca50
+    );
+
+    border: 1px solid #D4AF37;
+
+    color: #131314;
+}
+
+.signout-confirm-btn:hover {
+    background: #e6bd43;
+
+    box-shadow: 0 5px 18px rgba(212, 175, 55, 0.2);
+
+    transform: translateY(-2px);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+
+    .signout-popup {
+        padding: 35px 22px 25px;
+    }
+
+    .signout-content h2 {
+        font-size: 24px;
+    }
+
+    .signout-actions {
+        gap: 9px;
+    }
+
+    .signout-actions button {
+        font-size: 12px;
+        height: 44px;
+    }
+
+}

@@ -1,0 +1,416 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* =========================================
+   FRAGRANCE - LUXURY LANDING NAVBAR
+========================================= */
+/* GLOBAL BACKGROUND */
+
+html,
+body,
+#root {
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #131314;
+}
+
+body {
+    color: #e5e2e3;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+#root {
+    min-height: 100vh;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --landing-bg: #111110;
+    --landing-gold: #D4AF37;
+    --landing-gold-light: #F2CA50;
+    --landing-text: #E5E2E3;
+    --landing-muted: #AAA5A0;
+    --landing-border: rgba(212, 175, 55, 0.18);
+}
+
+/* MAIN NAVBAR */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 88px;
+
+    padding: 0 5.2%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    background: rgba(17, 17, 16, 0.97);
+
+    border-bottom: 1px solid var(--landing-border);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition: all 0.35s ease;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    color: var(--landing-gold);
+
+    font-family: 'Playfair Display', serif;
+    font-size: 29px;
+    font-weight: 600;
+
+    letter-spacing: 3.5px;
+
+    white-space: nowrap;
+    cursor: pointer;
+
+    transition: color 0.35s ease;
+}
+
+.logo:hover {
+    color: var(--landing-gold-light);
+}
+
+/* =========================================
+   COLLECTION LINKS
+========================================= */
+
+.collections {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: clamp(15px, 1.8vw, 27px);
+}
+
+.collections a {
+    position: relative;
+
+    color: #D2CECA;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    letter-spacing: 1.15px;
+
+    white-space: nowrap;
+
+    padding: 10px 0;
+
+    transition: color 0.35s ease;
+}
+
+/* GOLD UNDERLINE */
+
+.collections a::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+
+    width: 0;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        var(--landing-gold),
+        var(--landing-gold-light)
+    );
+
+    transition: width 0.35s ease;
+}
+
+.collections a:hover {
+    color: var(--landing-gold-light);
+}
+
+.collections a:hover::after {
+    width: 100%;
+}
+
+/* =========================================
+   AUTH BUTTONS
+========================================= */
+/* =========================================
+   LUXURY CAPSULE AUTH BUTTONS
+========================================= */
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* COMMON STYLE */
+
+.login-btn,
+.signup-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 96px;
+    height: 36px;
+
+    padding: 0 20px;
+
+    border-radius: 50px;
+
+    color: var(--landing-gold);
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    background: rgba(212, 175, 55, 0.04);
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    transition: all 0.35s ease;
+}
+
+/* HOVER */
+
+.login-btn:hover,
+.signup-btn:hover {
+    color: #15130D;
+
+    background: linear-gradient(
+        135deg,
+        #D4AF37,
+        #F2CA50
+    );
+
+    border-color: #F2CA50;
+
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.2);
+
+    transform: translateY(-2px);
+}
+
+/* FOCUS */
+
+.login-btn:focus-visible,
+.signup-btn:focus-visible {
+    outline: 2px solid var(--landing-gold-light);
+    outline-offset: 4px;
+}
+
+/* TABLET */
+
+@media (max-width: 1350px) {
+    .auth-buttons {
+        gap: 10px;
+    }
+
+    .login-btn,
+    .signup-btn {
+        min-width: 88px;
+        height: 34px;
+        padding: 0 16px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .auth-buttons {
+        gap: 8px;
+    }
+
+    .login-btn,
+    .signup-btn {
+        min-width: 76px;
+        height: 32px;
+        padding: 0 13px;
+
+        font-size: 9px;
+        letter-spacing: 0.8px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+    .login-btn,
+    .signup-btn {
+        min-width: 68px;
+        height: 30px;
+        padding: 0 10px;
+        font-size: 8px;
+    }
+}
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .navbar {
+        height: auto;
+        min-height: 82px;
+
+        padding: 16px 4%;
+
+        flex-wrap: wrap;
+        row-gap: 12px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .auth-buttons {
+        margin-left: auto;
+    }
+
+    .collections {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 8px 24px;
+
+        padding-top: 12px;
+
+        border-top: 1px solid rgba(212, 175, 55, 0.09);
+    }
+
+    .collections a {
+        font-size: 10px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        position: fixed;
+
+        height: auto;
+        min-height: 72px;
+
+        padding: 14px 18px;
+
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 21px;
+        letter-spacing: 2px;
+    }
+
+    .auth-buttons {
+        gap: 13px;
+    }
+
+    .login-btn {
+        font-size: 9px;
+        letter-spacing: 0.8px;
+    }
+
+    .signup-btn {
+        min-width: 85px;
+        height: 35px;
+
+        padding: 0 12px;
+
+        font-size: 9px;
+    }
+
+    .collections {
+        width: 100%;
+
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+
+        overflow-x: auto;
+
+        gap: 25px;
+
+        padding: 12px 0 5px;
+
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .collections::-webkit-scrollbar {
+        display: none;
+    }
+
+    .collections a {
+        flex-shrink: 0;
+
+        font-size: 9px;
+        letter-spacing: 0.9px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .navbar {
+        padding: 13px 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+    }
+
+    .auth-buttons {
+        gap: 10px;
+    }
+
+    .login-btn {
+        font-size: 8px;
+    }
+
+    .signup-btn {
+        min-width: 75px;
+        height: 32px;
+
+        padding: 0 9px;
+
+        font-size: 8px;
+    }
+
+    .collections {
+        gap: 19px;
+    }
+}

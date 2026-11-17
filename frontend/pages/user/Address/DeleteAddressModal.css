@@ -1,0 +1,201 @@
+
+/* =====================================
+   DELETE MODAL
+===================================== */
+
+.delete-address-modal {
+    width: 100%;
+    max-width: 420px;
+    padding: 25px;
+
+    background: #1c1b1c;
+    color: #e5e2e3;
+
+    border: 1px solid #383333;
+    border-radius: 8px;
+}
+
+
+/* =====================================
+   MODAL HEADER
+===================================== */
+
+.delete-address-modal .address-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #333;
+}
+
+.delete-address-modal .address-modal-header h3 {
+    margin: 0;
+
+    color: #e5e2e3;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+
+/* CLOSE BUTTON */
+
+.modal-close-btn {
+    width: 30px;
+    height: 30px;
+
+    background: transparent;
+    color: #aaa5a5;
+
+    border: none;
+
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    color: #D4AF37;
+}
+
+
+/* =====================================
+   DELETE CONTENT
+===================================== */
+
+.delete-modal-content {
+    padding: 5px 0 10px;
+}
+
+.delete-modal-content p {
+    margin: 0 0 13px;
+
+    color: #aaa5a5;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* SELECTED ADDRESS NAME */
+
+.delete-modal-content .delete-address-name {
+    padding: 12px 14px;
+
+    background: #131314;
+    color: #e5e2e3;
+
+    border-left: 3px solid #D4AF37;
+    border-radius: 4px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* WARNING MESSAGE */
+
+.delete-modal-content .delete-warning {
+    margin-top: 12px;
+
+    color: #e57373;
+    font-size: 12px;
+}
+
+
+/* =====================================
+   MODAL ACTIONS
+===================================== */
+
+.address-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    margin-top: 20px;
+    padding-top: 17px;
+
+    border-top: 1px solid #333;
+}
+
+
+/* CANCEL BUTTON */
+
+.address-modal-actions .cancel-btn {
+    min-width: 100px;
+    padding: 11px 18px;
+
+    background: transparent;
+    color: #c8c2c2;
+
+    border: 1px solid #555;
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.address-modal-actions .cancel-btn:hover {
+    background: #333;
+}
+
+
+/* DELETE BUTTON */
+
+.confirm-delete-btn {
+    min-width: 125px;
+    padding: 11px 18px;
+
+    background: #a94444;
+    color: #ffffff;
+
+    border: 1px solid #a94444;
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.confirm-delete-btn:hover {
+    background: #c65353;
+    border-color: #c65353;
+}
+
+
+/* DISABLED BUTTONS */
+
+.delete-address-modal button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 480px) {
+
+    .delete-address-modal {
+        padding: 18px;
+    }
+
+    .address-modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .address-modal-actions .cancel-btn,
+    .confirm-delete-btn {
+        width: 100%;
+    }
+
+}

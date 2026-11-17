@@ -1,0 +1,266 @@
+
+/* =========================================
+   USER DROPDOWN CONTAINER
+========================================= */
+
+.user-dropdown-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+
+/* =========================================
+   USER ICON BUTTON
+========================================= */
+
+.user-icon-btn {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    color: #e5e2e3;
+
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.user-icon-btn:hover {
+    color: #D4AF37;
+    background: rgba(212, 175, 55, 0.08);
+    border-color: rgba(212, 175, 55, 0.35);
+}
+
+.user-icon-btn svg {
+    width: 23px;
+    height: 23px;
+    stroke-width: 1.7;
+}
+
+
+/* =========================================
+   DROPDOWN BOX
+========================================= */
+
+.user-dropdown {
+    position: absolute;
+
+    top: calc(100% + 12px);
+    right: 0;
+
+    width: 245px;
+
+    padding: 9px;
+
+    background: #201f20;
+
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 10px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.45),
+        0 2px 8px rgba(0, 0, 0, 0.2);
+
+    z-index: 1000;
+
+    animation: dropdownOpen 0.22s ease;
+}
+
+
+/* =========================================
+   DROPDOWN ANIMATION
+========================================= */
+
+@keyframes dropdownOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   DROPDOWN ITEMS
+========================================= */
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    width: 100%;
+    min-height: 45px;
+
+    padding: 11px 14px;
+
+    color: #d6d1c5;
+    background: transparent;
+
+    border: none;
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        padding-left 0.25s ease;
+
+    box-sizing: border-box;
+}
+
+
+/* Dropdown Icons */
+
+.dropdown-item svg {
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+
+    color: #D4AF37;
+    stroke-width: 1.7;
+
+    transition: color 0.25s ease;
+}
+
+
+/* Dropdown Text */
+
+.dropdown-item span {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+}
+
+
+/* =========================================
+   NORMAL ITEM HOVER
+========================================= */
+
+.dropdown-item:hover {
+    color: #f2ca50;
+    background: rgba(212, 175, 55, 0.09);
+
+    padding-left: 18px;
+}
+
+.dropdown-item:hover svg {
+    color: #f2ca50;
+}
+
+
+/* =========================================
+   DROPDOWN DIVIDER
+========================================= */
+
+.dropdown-divider {
+    height: 1px;
+
+    margin: 7px 5px 4px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(212, 175, 55, 0.35),
+        transparent
+    );
+}
+
+
+/* =========================================
+   SIGN OUT - RED COLOR
+========================================= */
+
+.dropdown-item:last-of-type {
+    color: #e57373;
+}
+
+.dropdown-item:last-of-type svg {
+    color: #e57373;
+}
+
+.dropdown-item:last-of-type:hover {
+    color: #ff6b6b;
+    background: rgba(229, 83, 83, 0.10);
+}
+
+.dropdown-item:last-of-type:hover svg {
+    color: #ff6b6b;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 768px) {
+
+    .user-dropdown {
+        width: 235px;
+    }
+
+    .dropdown-item {
+        min-height: 44px;
+        padding: 10px 13px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .user-icon-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .user-dropdown {
+        width: 225px;
+        right: -5px;
+        top: calc(100% + 10px);
+    }
+
+    .dropdown-item {
+        font-size: 12px;
+        min-height: 43px;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .user-dropdown,
+    .dropdown-item,
+    .dropdown-item svg,
+    .user-icon-btn {
+        animation: none;
+        transition: none;
+    }
+}

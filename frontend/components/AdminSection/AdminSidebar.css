@@ -1,0 +1,349 @@
+
+/* =====================================
+   ADMIN SIDEBAR
+===================================== */
+
+.admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 260px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #1c1b1c;
+    border-right: 1px solid rgba(212, 175, 55, 0.16);
+
+    z-index: 1000;
+
+    overflow: hidden;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+
+/* =====================================
+   BRAND SECTION
+===================================== */
+
+.admin-sidebar-brand {
+    height: 100px;
+    min-height: 100px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 0 25px;
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.13);
+}
+
+.admin-brand-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+
+    border-radius: 10px;
+
+    flex-shrink: 0;
+}
+
+.admin-brand-icon span {
+    color: #D4AF37;
+    font-size: 27px;
+    line-height: 1;
+}
+
+.admin-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.admin-brand-text h2 {
+    margin: 0;
+
+    color: #D4AF37;
+
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.admin-brand-text p {
+    margin: 0;
+
+    color: #929092;
+
+    font-size: 8px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =====================================
+   MENU SECTION
+===================================== */
+
+.admin-sidebar-menu {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    padding: 25px 15px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* Scrollbar */
+
+.admin-sidebar-menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.admin-sidebar-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.admin-sidebar-menu::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.25);
+    border-radius: 10px;
+}
+
+.admin-sidebar-menu::-webkit-scrollbar-thumb:hover {
+    background: #D4AF37;
+}
+
+
+/* =====================================
+   MENU LINKS
+===================================== */
+
+.admin-sidebar-link {
+    position: relative;
+
+    width: 100%;
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 16px;
+
+    color: #a5a2a5;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    border-radius: 8px;
+
+    border: 1px solid transparent;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+
+    box-sizing: border-box;
+}
+
+.admin-sidebar-link svg {
+    flex-shrink: 0;
+    color: #929092;
+
+    transition: color 0.25s ease;
+}
+
+.admin-sidebar-link span {
+    white-space: nowrap;
+}
+
+
+/* =====================================
+   HOVER EFFECT
+===================================== */
+
+.admin-sidebar-link:hover {
+    color: #D4AF37;
+
+    background: rgba(212, 175, 55, 0.08);
+
+    border-color: rgba(212, 175, 55, 0.15);
+
+    transform: translateX(3px);
+}
+
+.admin-sidebar-link:hover svg {
+    color: #D4AF37;
+}
+
+
+/* =====================================
+   ACTIVE MENU - GOLD HIGHLIGHT
+===================================== */
+
+.admin-sidebar-link.active {
+    color: #D4AF37;
+
+    background: linear-gradient(
+        90deg,
+        rgba(212, 175, 55, 0.18),
+        rgba(212, 175, 55, 0.06)
+    );
+
+    border: 1px solid rgba(212, 175, 55, 0.3);
+
+    font-weight: 600;
+
+    box-shadow: inset 3px 0 0 #D4AF37;
+}
+
+.admin-sidebar-link.active svg {
+    color: #D4AF37;
+}
+
+
+/* =====================================
+   SIGN OUT SECTION
+===================================== */
+
+.admin-sidebar-bottom {
+    padding: 15px;
+
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+
+    flex-shrink: 0;
+}
+
+.admin-signout-link {
+    color: #c18a83;
+}
+
+.admin-signout-link svg {
+    color: #c18a83;
+}
+
+.admin-signout-link:hover {
+    color: #e28b80;
+
+    background: rgba(226, 100, 85, 0.09);
+
+    border-color: rgba(226, 100, 85, 0.2);
+}
+
+.admin-signout-link:hover svg {
+    color: #e28b80;
+}
+
+.admin-signout-link.active {
+    color: #e28b80;
+
+    background: rgba(226, 100, 85, 0.12);
+
+    border-color: rgba(226, 100, 85, 0.25);
+
+    box-shadow: inset 3px 0 0 #e28b80;
+}
+
+.admin-signout-link.active svg {
+    color: #e28b80;
+}
+
+
+/* =====================================
+   RESPONSIVE
+   Sidebar remains visible
+===================================== */
+
+@media (max-width: 768px) {
+
+    .admin-sidebar {
+        width: 220px;
+    }
+
+    .admin-sidebar-brand {
+        padding: 0 18px;
+    }
+
+    .admin-sidebar-menu {
+        padding: 20px 12px;
+    }
+
+    .admin-sidebar-bottom {
+        padding: 12px;
+    }
+
+    .admin-sidebar-link {
+        gap: 11px;
+        padding: 0 13px;
+        font-size: 12px;
+    }
+
+    .admin-brand-text h2 {
+        font-size: 18px;
+    }
+
+    .admin-brand-text p {
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .admin-sidebar {
+        width: 190px;
+    }
+
+    .admin-sidebar-brand {
+        gap: 9px;
+        padding: 0 12px;
+    }
+
+    .admin-brand-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .admin-brand-icon span {
+        font-size: 23px;
+    }
+
+    .admin-brand-text h2 {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    .admin-brand-text p {
+        font-size: 6px;
+        letter-spacing: 1px;
+    }
+
+    .admin-sidebar-link {
+        min-height: 44px;
+        font-size: 11px;
+    }
+}

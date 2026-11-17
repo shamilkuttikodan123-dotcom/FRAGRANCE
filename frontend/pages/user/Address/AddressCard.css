@@ -1,0 +1,247 @@
+
+/* =====================================
+   ADDRESS CARD
+===================================== */
+
+.address-card {
+    width: 100%;
+    padding: 22px;
+    box-sizing: border-box;
+
+    background: #1c1b1c;
+    border: 1px solid #2a2a2b;
+    border-radius: 8px;
+
+    transition: all 0.3s ease;
+}
+
+.address-card:hover {
+    border-color: #8d752d;
+}
+
+
+/* =====================================
+   CARD HEADER
+===================================== */
+
+.address-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+/* TITLE */
+
+.address-card-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.address-card-title h3 {
+    margin: 0;
+
+    color: #e5e2e3;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* =====================================
+   DEFAULT BADGE
+===================================== */
+
+.default-badge {
+    padding: 5px 10px;
+
+    background: rgba(212, 175, 55, 0.12);
+    color: #D4AF37;
+
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* =====================================
+   DEFAULT RADIO
+===================================== */
+
+.default-radio {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #aaa5a5;
+    font-size: 12px;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.default-radio input {
+    width: 15px;
+    height: 15px;
+
+    margin: 0;
+
+    accent-color: #D4AF37;
+    cursor: pointer;
+}
+
+.default-radio input:focus-visible {
+    outline: 2px solid #D4AF37;
+    outline-offset: 3px;
+}
+
+
+/* =====================================
+   ADDRESS DETAILS
+===================================== */
+
+.address-card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    padding: 17px 0;
+
+    border-top: 1px solid #2a2a2b;
+    border-bottom: 1px solid #2a2a2b;
+}
+
+
+/* CUSTOMER NAME */
+
+.address-card-details h4 {
+    margin: 0 0 3px;
+
+    color: #e5e2e3;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ADDRESS INFORMATION */
+
+.address-card-details p {
+    margin: 0;
+
+    color: #aaa5a5;
+    font-size: 13px;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =====================================
+   CARD ACTION BUTTONS
+===================================== */
+
+.address-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+/* COMMON BUTTON STYLE */
+
+.edit-address-btn,
+.delete-address-btn {
+    min-width: 85px;
+    padding: 9px 17px;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* EDIT BUTTON */
+
+.edit-address-btn {
+    background: transparent;
+    color: #D4AF37;
+
+    border: 1px solid #D4AF37;
+}
+
+.edit-address-btn:hover {
+    background: #D4AF37;
+    color: #131314;
+}
+
+
+/* DELETE BUTTON */
+
+.delete-address-btn {
+    background: transparent;
+    color: #e57373;
+
+    border: 1px solid #a94c4c;
+}
+
+.delete-address-btn:hover {
+    background: #a94444;
+    color: #ffffff;
+}
+
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 600px) {
+
+    .address-card {
+        padding: 17px;
+    }
+
+    .address-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .address-card-actions {
+        justify-content: flex-start;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .address-card-title {
+        gap: 7px;
+    }
+
+    .address-card-title h3 {
+        font-size: 14px;
+    }
+
+    .default-radio {
+        font-size: 11px;
+    }
+
+    .edit-address-btn,
+    .delete-address-btn {
+        flex: 1;
+    }
+
+}

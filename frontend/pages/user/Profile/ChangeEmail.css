@@ -1,0 +1,925 @@
+/* =========================================
+   FRAGRANCE - CHANGE EMAIL POPUP
+   Premium Luxury Dark Theme
+   Desktop | Tablet | Mobile
+========================================= */
+
+
+/* =========================================
+   1. THEME VARIABLES
+========================================= */
+
+:root {
+    --email-bg: #131314;
+    --email-card: #1c1b1c;
+    --email-input: #242223;
+    --email-input-hover: #2a2828;
+    --email-border: #353234;
+
+    --email-gold: #D4AF37;
+    --email-gold-light: #f2ca50;
+    --email-gold-dark: #a98720;
+    --email-gold-soft: rgba(212, 175, 55, 0.10);
+
+    --email-text: #e5e2e3;
+    --email-muted: #a6a1a2;
+    --email-subtle: #777273;
+
+    --email-danger: #e57373;
+    --email-success: #81c784;
+
+    --email-radius: 12px;
+    --email-transition: all 0.3s ease;
+
+    --email-heading-font: "Playfair Display", serif;
+    --email-body-font: "Plus Jakarta Sans", sans-serif;
+}
+
+
+/* =========================================
+   2. PREVENT BACKGROUND SCROLL
+========================================= */
+
+body:has(.change-email-overlay) {
+    overflow: hidden;
+}
+
+
+/* =========================================
+   3. POPUP OVERLAY
+========================================= */
+
+.change-email-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: rgba(0, 0, 0, 0.84);
+
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+
+    animation: emailOverlayFade 0.3s ease;
+}
+
+
+/* =========================================
+   4. POPUP CARD
+========================================= */
+
+.change-email-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 465px;
+
+    max-height: calc(100dvh - 40px);
+    min-height: 0;
+
+    margin: auto;
+
+    padding: 42px 36px 34px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--email-gold-dark) #242223;
+
+    background:
+        radial-gradient(
+            ellipse at top right,
+            rgba(212, 175, 55, 0.055),
+            transparent 48%
+        ),
+        var(--email-bg);
+
+    border: 1px solid rgba(212, 175, 55, 0.38);
+    border-radius: 15px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.75),
+        0 0 35px rgba(212, 175, 55, 0.055),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    animation: emailPopupAppear 0.35s ease;
+}
+
+.change-email-error {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+/* =========================================
+   5. CUSTOM SCROLLBAR
+========================================= */
+
+.change-email-card::-webkit-scrollbar {
+    width: 5px;
+}
+
+.change-email-card::-webkit-scrollbar-track {
+    background: #242223;
+    border-radius: 10px;
+}
+
+.change-email-card::-webkit-scrollbar-thumb {
+    background: var(--email-gold-dark);
+    border-radius: 10px;
+}
+
+.change-email-card::-webkit-scrollbar-thumb:hover {
+    background: var(--email-gold);
+}
+
+
+/* =========================================
+   6. CLOSE BUTTON
+========================================= */
+
+.change-email-close {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    z-index: 10;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid var(--email-border);
+    border-radius: 50%;
+
+    color: var(--email-muted);
+
+    font-family: var(--email-body-font);
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: var(--email-transition);
+}
+
+.change-email-close:hover {
+    background: rgba(212, 175, 55, 0.12);
+
+    border-color: var(--email-gold);
+
+    color: var(--email-gold-light);
+
+    transform: rotate(90deg);
+}
+
+.change-email-close:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================================
+   7. STEP HEADINGS
+========================================= */
+
+.change-email-heading {
+    margin: 0 38px 12px 0;
+
+    color: var(--email-gold-light);
+
+    font-family: var(--email-heading-font);
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    letter-spacing: 0.2px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   8. DESCRIPTION
+========================================= */
+
+.change-email-description {
+    margin: 0 0 26px;
+
+    color: var(--email-muted);
+
+    font-family: var(--email-body-font);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.85;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   9. FORM
+========================================= */
+
+.change-email-card form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+
+/* =========================================
+   10. INPUT LABEL
+========================================= */
+
+.change-email-label {
+    display: block;
+
+    margin: 0 0 2px;
+
+    color: var(--email-text);
+
+    font-family: var(--email-body-font);
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 0.35px;
+}
+
+
+/* =========================================
+   11. EMAIL INPUT FIELDS
+========================================= */
+
+.change-email-input {
+    display: block;
+
+    width: 100%;
+    height: 47px;
+    min-height: 47px;
+
+    padding: 0 15px;
+
+    background: var(--email-input);
+
+    border: 1px solid var(--email-border);
+    border-radius: 7px;
+
+    outline: none;
+
+    color: var(--email-text);
+
+    font-family: var(--email-body-font);
+    font-size: 12px;
+    font-weight: 500;
+
+    transition: var(--email-transition);
+}
+
+.change-email-input::placeholder {
+    color: var(--email-subtle);
+    opacity: 1;
+}
+
+.change-email-input:hover:not(:read-only) {
+    background: var(--email-input-hover);
+
+    border-color: rgba(212, 175, 55, 0.45);
+}
+
+.change-email-input:focus {
+    background: #272526;
+
+    border-color: var(--email-gold);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.09),
+        0 0 15px rgba(212, 175, 55, 0.035);
+}
+
+.change-email-input:read-only {
+    background: #201f20;
+
+    border-color: rgba(212, 175, 55, 0.24);
+
+    color: var(--email-gold-light);
+
+    cursor: default;
+}
+
+
+/* =========================================
+   12. OTP INPUT CONTAINER
+========================================= */
+
+.change-email-otp-inputs {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin: 9px 0 13px;
+}
+
+
+/* =========================================
+   13. OTP INPUT BOXES
+========================================= */
+
+.change-email-otp-box {
+    width: 47px;
+    height: 53px;
+    min-width: 0;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--email-input);
+
+    border: 1px solid var(--email-border);
+    border-radius: 8px;
+
+    outline: none;
+
+    color: var(--email-gold-light);
+
+    font-family: var(--email-body-font);
+    font-size: 19px;
+    font-weight: 700;
+
+    text-align: center;
+
+    caret-color: var(--email-gold);
+
+    transition: var(--email-transition);
+}
+
+.change-email-otp-box:hover {
+    background: var(--email-input-hover);
+
+    border-color: rgba(212, 175, 55, 0.55);
+}
+
+.change-email-otp-box:focus {
+    background: #2a2723;
+
+    border-color: var(--email-gold);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.11),
+        0 0 15px rgba(212, 175, 55, 0.06);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   14. PRIMARY BUTTON
+   Send OTP / Verify OTP / Update Email
+========================================= */
+
+.change-email-button {
+    width: 100%;
+    min-height: 47px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 13px;
+    padding: 11px 18px;
+
+    background: linear-gradient(
+        110deg,
+        #b99127 0%,
+        #D4AF37 48%,
+        #f2ca50 100%
+    );
+
+    border: 1px solid var(--email-gold);
+    border-radius: 7px;
+
+    color: #171512;
+
+    font-family: var(--email-body-font);
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+
+    cursor: pointer;
+
+    transition: var(--email-transition);
+}
+
+.change-email-button:hover:not(:disabled) {
+    background: linear-gradient(
+        110deg,
+        #d4af37,
+        #ffe078
+    );
+
+    box-shadow:
+        0 6px 20px rgba(212, 175, 55, 0.2),
+        0 0 12px rgba(212, 175, 55, 0.08);
+
+    transform: translateY(-2px);
+}
+
+.change-email-button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.change-email-button:disabled {
+    opacity: 0.52;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+/* =========================================
+   15. SECONDARY BUTTON
+   Resend OTP
+========================================= */
+
+.change-email-secondary-button {
+    width: 100%;
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 13px;
+    padding: 10px 16px;
+
+    background: rgba(212, 175, 55, 0.065);
+
+    border: 1px solid rgba(212, 175, 55, 0.48);
+    border-radius: 7px;
+
+    color: var(--email-gold-light);
+
+    font-family: var(--email-body-font);
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 0.25px;
+
+    cursor: pointer;
+
+    transition: var(--email-transition);
+}
+
+.change-email-secondary-button:hover:not(:disabled) {
+    background: rgba(212, 175, 55, 0.14);
+
+    border-color: var(--email-gold);
+
+    color: #ffe078;
+
+    box-shadow: 0 3px 12px rgba(212, 175, 55, 0.06);
+}
+
+.change-email-secondary-button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.change-email-secondary-button:disabled {
+    background: #222122;
+
+    border-color: #393536;
+
+    color: #777273;
+
+    cursor: not-allowed;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================
+   16. SUCCESS EMAIL TEXT
+========================================= */
+
+.change-email-text {
+    margin: 16px 0 23px;
+    padding: 15px;
+
+    background: rgba(212, 175, 55, 0.075);
+
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 8px;
+
+    color: var(--email-gold-light);
+
+    font-family: var(--email-body-font);
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1.7;
+
+    text-align: center;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   17. ERROR MESSAGE
+========================================= */
+
+.change-email-error {
+    display: block;
+
+    margin: 20px 0 0;
+    padding: 12px 14px;
+
+    background: rgba(229, 115, 115, 0.075);
+
+    border: 1px solid rgba(229, 115, 115, 0.27);
+    border-radius: 7px;
+
+    color: var(--email-danger);
+
+    font-family: var(--email-body-font);
+    font-size: 11px;
+    font-weight: 500;
+
+    line-height: 1.7;
+
+    overflow-wrap: anywhere;
+
+    animation: emailMessageAppear 0.25s ease;
+}
+
+
+/* =========================================
+   18. SUCCESS MESSAGE
+========================================= */
+
+.change-email-success {
+    display: block;
+
+    margin: 20px 0 0;
+    padding: 12px 14px;
+
+    background: rgba(129, 199, 132, 0.075);
+
+    border: 1px solid rgba(129, 199, 132, 0.25);
+    border-radius: 7px;
+
+    color: var(--email-success);
+
+    font-family: var(--email-body-font);
+    font-size: 11px;
+    font-weight: 500;
+
+    line-height: 1.7;
+
+    overflow-wrap: anywhere;
+
+    animation: emailMessageAppear 0.25s ease;
+}
+
+
+/* =========================================
+   19. SUCCESS STEP HEADING
+========================================= */
+
+.change-email-heading:has(+ .change-email-description) {
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   20. ACCESSIBILITY FOCUS
+========================================= */
+
+.change-email-card button:focus-visible,
+.change-email-card input:focus-visible {
+    outline: 2px solid var(--email-gold-light);
+    outline-offset: 3px;
+}
+
+.change-email-card button:focus:not(:focus-visible),
+.change-email-card input:focus:not(:focus-visible) {
+    outline: none;
+}
+
+
+/* =========================================
+   21. POPUP ANIMATIONS
+========================================= */
+
+@keyframes emailOverlayFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes emailPopupAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes emailMessageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   22. TABLET RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .change-email-overlay {
+        padding: 16px;
+    }
+
+    .change-email-card {
+        max-width: 440px;
+
+        max-height: calc(100dvh - 32px);
+
+        padding: 37px 29px 30px;
+    }
+
+    .change-email-heading {
+        font-size: 25px;
+    }
+
+    .change-email-description {
+        font-size: 11px;
+    }
+
+    .change-email-input {
+        height: 45px;
+        min-height: 45px;
+    }
+
+    .change-email-otp-box {
+        width: 45px;
+        height: 51px;
+    }
+
+    .change-email-button {
+        min-height: 45px;
+    }
+}
+
+
+/* =========================================
+   23. MOBILE RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 480px) {
+
+    .change-email-overlay {
+        align-items: center;
+
+        padding: 10px;
+    }
+
+    .change-email-card {
+        width: 100%;
+        max-width: 100%;
+
+        max-height: calc(100dvh - 20px);
+
+        padding: 34px 20px 24px;
+
+        border-radius: 12px;
+    }
+
+    .change-email-close {
+        top: 11px;
+        right: 11px;
+
+        width: 32px;
+        height: 32px;
+
+        font-size: 23px;
+    }
+
+    .change-email-heading {
+        margin-right: 34px;
+        margin-bottom: 10px;
+
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    .change-email-description {
+        margin-bottom: 22px;
+
+        font-size: 11px;
+        line-height: 1.75;
+    }
+
+    .change-email-label {
+        font-size: 11px;
+    }
+
+    .change-email-input {
+        height: 44px;
+        min-height: 44px;
+
+        padding: 0 12px;
+
+        font-size: 11px;
+    }
+
+    .change-email-otp-inputs {
+        gap: 7px;
+
+        margin: 8px 0 12px;
+    }
+
+    .change-email-otp-box {
+        width: min(44px, 13vw);
+        height: 48px;
+
+        font-size: 17px;
+    }
+
+    .change-email-button {
+        min-height: 44px;
+
+        margin-top: 11px;
+
+        font-size: 11px;
+    }
+
+    .change-email-secondary-button {
+        min-height: 42px;
+
+        margin-top: 11px;
+
+        font-size: 10px;
+    }
+
+    .change-email-text {
+        padding: 13px;
+
+        font-size: 12px;
+    }
+
+    .change-email-error,
+    .change-email-success {
+        margin-top: 16px;
+
+        padding: 11px;
+
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================
+   24. SMALL MOBILE
+========================================= */
+
+@media screen and (max-width: 350px) {
+
+    .change-email-overlay {
+        padding: 7px;
+    }
+
+    .change-email-card {
+        max-height: calc(100dvh - 14px);
+
+        padding: 30px 15px 19px;
+    }
+
+    .change-email-heading {
+        font-size: 20px;
+    }
+
+    .change-email-description {
+        font-size: 10px;
+    }
+
+    .change-email-close {
+        width: 29px;
+        height: 29px;
+    }
+
+    .change-email-otp-inputs {
+        gap: 5px;
+    }
+
+    .change-email-otp-box {
+        width: min(40px, 12vw);
+        height: 44px;
+
+        font-size: 16px;
+    }
+}
+
+
+/* =========================================
+   25. LANDSCAPE MOBILE
+========================================= */
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+
+    .change-email-overlay {
+        align-items: flex-start;
+
+        padding: 10px;
+    }
+
+    .change-email-card {
+        max-height: none;
+
+        margin: 0 auto;
+
+        padding-top: 35px;
+    }
+
+    .change-email-heading {
+        font-size: 21px;
+    }
+
+    .change-email-description {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* =========================================
+   26. REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .change-email-overlay,
+    .change-email-card,
+    .change-email-error,
+    .change-email-success {
+        animation: none !important;
+    }
+
+    .change-email-card *,
+    .change-email-card *::before,
+    .change-email-card *::after {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

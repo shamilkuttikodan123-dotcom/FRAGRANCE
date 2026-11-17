@@ -1,0 +1,97 @@
+
+/* =====================================
+   ADMIN LAYOUT
+===================================== */
+
+.admin-layout {
+    display: flex;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background: #131314;
+
+    color: #e5e2e3;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+
+/* =====================================
+   MAIN CONTENT
+===================================== */
+
+.admin-main-content {
+    flex: 1;
+
+    width: calc(100% - 260px);
+    min-width: 0;
+
+    min-height: 100vh;
+
+    margin-left: 260px;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    background: #131314;
+
+    transition: margin-left 0.3s ease;
+}
+
+
+/* =====================================
+   PAGE CONTAINER
+===================================== */
+
+.admin-page-container {
+    width: 100%;
+    max-width: 1600px;
+
+    min-height: calc(100vh - 60px);
+
+    margin: 0 auto;
+}
+
+
+/* =====================================
+   RESPONSIVE - TABLET
+===================================== */
+
+@media (max-width: 768px) {
+
+    .admin-main-content {
+        width: calc(100% - 220px);
+
+        margin-left: 220px;
+
+        padding: 22px;
+    }
+
+    .admin-page-container {
+        min-height: calc(100vh - 44px);
+    }
+
+}
+
+
+/* =====================================
+   RESPONSIVE - MOBILE
+===================================== */
+
+@media (max-width: 480px) {
+
+    .admin-main-content {
+        width: calc(100% - 190px);
+
+        margin-left: 190px;
+
+        padding: 15px;
+    }
+
+    .admin-page-container {
+        min-height: calc(100vh - 30px);
+    }
+
+}
